@@ -1,0 +1,13 @@
+.or-container {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px auto;
+}
+
+.or-container div {
+    height: 1px;
+    background: #ccc;
+    width: 40%;
+}
