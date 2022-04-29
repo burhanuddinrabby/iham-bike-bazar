@@ -12,7 +12,7 @@ const SignUp = () => {
     const [errorMessage, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location?.state?.from?.pathname || '/services';
+    const from = location?.state?.from?.pathname || '/';
 
     const [sendEmailVerification, sending] = useSendEmailVerification(auth);
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);

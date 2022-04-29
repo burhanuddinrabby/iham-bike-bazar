@@ -2,6 +2,7 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 const Header = () => {
@@ -16,7 +17,7 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">IHAM BIKE BAZAR</Navbar.Brand>
+                    <Navbar.Brand as={Link} to='/'>IHAM BIKE BAZAR</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -26,15 +27,21 @@ const Header = () => {
                             <CustomLink className='mx-2' to='/'>Home</CustomLink>
                             <CustomLink className='mx-2' to='/Blogs'>Blogs</CustomLink>
                         </Nav>
-                        <Navbar.Text className='mt-3 ms-2 me-1 text-primary'>
-                            {
-                                user ? <p>{(user.displayName || user.email).slice(0, 8).toUpperCase()}</p> : ''
-                            }
-                        </Navbar.Text>
-                        <Navbar.Text>
 
+                        {
+                            user &&
+                            //if user if logged in nav bar will three links
+                            <Nav>
+                                <CustomLink className='mx-2' to='/manage-items'>Manage Items</CustomLink>
+                                <CustomLink className='mx-2' to='/add-item'>Add Item</CustomLink>
+                                <CustomLink className='mx-2' to='/my-items'>My Items</CustomLink>
+                            </Nav>
+                        }
+
+                        <Navbar.Text>
                             {
                                 user ? <button onClick={logout}>SignOut</button> : <CustomLink to='/login'>Login</CustomLink>
+
                             }
                         </Navbar.Text>
                     </Navbar.Collapse>
