@@ -11,6 +11,7 @@ import MyItems from './components/MyItems/MyItems';
 import Home from './components/Home/Home';
 import SignUp from './components/Login/SignUp/SignUp';
 import ForgetPass from './components/Login/ForgotPass/ForgetPass';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -20,9 +21,10 @@ function App() {
         <Route path="/" element={<Home></Home>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
-        <Route path='/manage-items' element={<RequireAuth>
-          <ManageItems></ManageItems>
-        </RequireAuth>} />
+        <Route path='/manage-items' element={
+          <RequireAuth>
+            <ManageItems></ManageItems>
+          </RequireAuth>} />
         <Route path='/add-item' element={<RequireAuth>
           <AddItem></AddItem>
         </RequireAuth>} />
@@ -33,6 +35,7 @@ function App() {
         <Route path="/forget-password" element={<ForgetPass></ForgetPass>} />
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
