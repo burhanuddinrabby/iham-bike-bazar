@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import './Home.css';
+import ItemCard from './ItemCard';
 
 const Home = () => {
+    const [bikes, setBikes] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => setBikes(data))
+    }, [])
+    // console.log(bikes);
     return (
         <div id='home'>
+
+            {/* * * *  banner * * * * */}
             <Carousel className='mt-5'>
                 <Carousel.Item>
                     <img
@@ -33,6 +43,13 @@ const Home = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
+
+            {/* Inventory items */}
+            <div className='mt-5 mx-auto row w-90'>
+                {
+                    bikes.map(bike => <ItemCard key={bike.id} bike={bike} />)
+                }
+            </div>
         </div>
     );
 };
