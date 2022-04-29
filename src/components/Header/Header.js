@@ -24,9 +24,7 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             <CustomLink className='mx-2' to='/'>Home</CustomLink>
-                            <CustomLink className='mx-2' to='/services'>Services</CustomLink>
                             <CustomLink className='mx-2' to='/Blogs'>Blogs</CustomLink>
-                            <CustomLink className='mx-2' to='/about'>About Me</CustomLink>
                         </Nav>
                         <Navbar.Text className='mt-3 ms-2 me-1 text-primary'>
                             {
