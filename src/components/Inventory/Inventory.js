@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import './Inventory.css';
 
 const Inventory = () => {
     const { id } = useParams();
@@ -27,10 +29,25 @@ const Inventory = () => {
             body: JSON.stringify(newBike)
         })
     }
+    //adding to stock manually
+    function addToStock(e) {
+        e.preventDefault();
+        const itemValue = parseInt(e.target.itemValue.value);
+        let newQuantity = quantity + itemValue;
+        const newBike = { ...bike, quantity: newQuantity }
+        setBike(newBike);
+        fetch(`http://localhost:5000/update-product/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newBike)
+        })
+    }
     return (
         <div>
 
-            <div className='container my-3 custom-width-info'>
+            <div className='container my-3 w-75 custom-width-info'>
 
                 <div className="row">
                     <div className="col-lg-6 rounded d-flex justify-content-center align-items-center custom-bg-light">
@@ -42,11 +59,19 @@ const Inventory = () => {
                         <small className='my-2'>Supplier : <b>{supplierName}</b></small><br />
                         <small>Available : {quantity > 0 ? quantity : 'Out of stock'}</small><br />
                         <p className='my-2'>{description}</p>
-                        <button onClick={() => removeOne(id)} className='btn btn-primary' disabled={quantity <= 0}>Delivered One</button>
+                        <button onClick={() => removeOne(id)} className='btn btn-primary' disabled={quantity <= 0}>Delivered</button>
+                        <Form className='w-75 mx-auto my-5' onSubmit={addToStock}>
+                            <Form.Group className="mb-3">
+                                <Form.Control type="number" placeholder='Add to stock' name='itemValue' />
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Add to stock
+                            </Button>
+                        </Form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -1,0 +1,45 @@
+.custom-bg-light {
+    background-color: #1d2e44;
+    transition: ease-out 0.5s;
+}
+
+.custom-bg-light:hover {
+    background-color: #f3ebeb;
+}
+
+.custom-bg-light:hover .custom-bg {
+    background-color: #212529;
+    color: #f3ebeb;
+}
+
+.custom-bg-dark {
+    background-color: #212529;
+    color: #f3ebeb;
+    transition: linear 0.5s;
+    padding: 3rem !;
+}
+
+.custom-bg-dark:hover {
+    background-color: #f3ebeb;
+    color: #212529;
+}
+
+@media only screen and (max-width:900px)and (min-width:600px) {
+    .custom-width-info {
+        width: 80% !important;
+    }
+
+    .custom-bg-dark {
+        margin-top: 20px !important;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .custom-bg-dark {
+        margin-top: 20px !important;
+    }
+
+    .custom-width-info {
+        width: 90% !important;
+    }
+}

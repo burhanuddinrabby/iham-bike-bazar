@@ -40,7 +40,7 @@ const Header = () => {
 
                         <Navbar.Text>
                             {
-                                user ? <button onClick={logout}>SignOut</button> : <CustomLink to='/login'>Login</CustomLink>
+                                user ? <button onClick={logout} className='btn btn-danger'>SignOut</button> : <CustomLink to='/login'>Login</CustomLink>
 
                             }
                         </Navbar.Text>

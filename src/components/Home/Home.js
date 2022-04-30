@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
+import useBikes from '../../hooks/useBikes';
 import './Home.css';
 import ItemCard from './ItemCard';
 
 const Home = () => {
-    const [bikes, setBikes] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/products')
-            .then(res => res.json())
-            .then(data => setBikes(data))
-    }, [])
-    // console.log(bikes);
+    //inserting bikes from custom hook
+    const [bikes] = useBikes();
     return (
         <div id='home'>
 
@@ -47,7 +43,7 @@ const Home = () => {
             {/* Inventory items */}
             <div className='mt-5 mx-auto row w-90'>
                 {
-                    bikes.map(bike => <ItemCard key={bike._id} bike={bike} />)
+                    bikes.slice(0, 6).map(bike => <ItemCard key={bike._id} bike={bike} />)
                 }
             </div>
         </div>
