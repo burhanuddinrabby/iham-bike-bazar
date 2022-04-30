@@ -13,7 +13,8 @@ const Inventory = () => {
         }
         fetchData();
     }, [])
-    // let [newQuantity, setQuantity] = useState(quantity);
+
+    // removing and setting new item when button is clicked
     function removeOne() {
         let newQuantity = quantity - 1;
         const newBike = { ...bike, quantity: newQuantity }
@@ -28,14 +29,23 @@ const Inventory = () => {
     }
     return (
         <div>
-            loading something or : {id}
-            <br />
-            data : {bike.name}
-            <br />
-            {quantity > 0 ? quantity : 'Out of stock'}
-            {/* {quantity} */}
-            <br />
-            <button onClick={() => removeOne(id)}>add</button>
+
+            <div className='container my-3 custom-width-info'>
+
+                <div className="row">
+                    <div className="col-lg-6 rounded d-flex justify-content-center align-items-center custom-bg-light">
+                        <img src={img} className='className="mx-auto w-75 img-fluid' />
+                    </div>
+                    <div className="col-lg-6 custom-bg-dark rounded py-5">
+                        <h2 className="card-title">{name}</h2>
+                        <h2 className='my-2'>$ {price}</h2>
+                        <small className='my-2'>Supplier : <b>{supplierName}</b></small><br />
+                        <small>Available : {quantity > 0 ? quantity : 'Out of stock'}</small><br />
+                        <p className='my-2'>{description}</p>
+                        <button onClick={() => removeOne(id)} className='btn btn-primary' disabled={quantity <= 0}>Delivered One</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

@@ -14,7 +14,7 @@ const ItemCard = ({ bike }) => {
                 </Card.Text>
                 <h2 className='my-2'>$ {price}</h2>
                 <small className='my-2'>Supplier : <b>{supplierName}</b></small><br />
-                <small>Available : {quantity}</small><br />
+                <small>Available : {quantity > 0 ? quantity : 'Out of stock'}</small><br />
                 <Button as={Link} to={`inventory/${_id}`} variant="primary" className='btn-bottom'>Update</Button>
             </Card.Body>
         </Card>
