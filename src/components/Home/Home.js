@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button, Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useBikes from '../../hooks/useBikes';
@@ -53,6 +53,21 @@ const Home = () => {
             {/* Trip section */}
             <section className='container my-5'>
                 <Trip></Trip>
+            </section>
+            <hr className='w-75 mx-auto d-block my-5' />
+            <section className='container my-5'>
+                <div className='justify-content-between align-items-center custom-grid'>
+                    <div className="rounded d-flex justify-content-center align-items-center custom-bg-light custom-height">
+                        <img src='https://i.ibb.co/PmxnpVD/image-6.png' className='trip-img' alt='not found' />
+                    </div>
+                    <div className="d-flex flex-column custom-bg-dark rounded custom-height justify-content-center align-items-center px-5">
+                        <h2 className='text-center my-3'>Makes you <span className='text-primary'>Faster!!</span></h2>
+                        <p className='text-center'>
+                            Iham bike bazar is the best place to get or order the best bikes and accessories. You can buy the best bikes and accessories for yourself or your friend. Don't get late for office!! Choose your bike.
+                        </p>
+                        <Button as={Link} to='/manage-items' className='btn btn-primary mt-1'>Choose now</Button>
+                    </div>
+                </div>
             </section>
         </div>
     );
