@@ -17,7 +17,7 @@ const ManageItems = () => {
         const confirm = window.confirm('Are you sure you want to delete?');
         //removing item from database
         if (confirm) {
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://protected-peak-69494.herokuapp.com/product/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -40,7 +40,7 @@ const ManageItems = () => {
         const supplierName = bike.supplierName;
         const newBike = { img, name, supplierName, email }
         console.log(newBike);
-        fetch(`http://localhost:5000/add-order`, {
+        fetch(`https://protected-peak-69494.herokuapp.com/add-order`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

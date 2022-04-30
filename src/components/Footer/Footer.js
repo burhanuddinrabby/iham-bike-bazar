@@ -10,8 +10,8 @@ const Footer = () => {
                     <Col lg={4} md={6} sm={12}>
                         <h3>About Me</h3>
                         <p>
-                            My name is Burhan Uddin. I'm 21. I'm learning web dev yaay.!
-                            Oneday I'll become a web developer.
+                            My name is Burhan Uddin. I'm 21. I'm a newbie full stack web developer.
+                            I'm a self taught web developer.
                         </p>
                     </Col>
                     <Col lg={4} md={6} sm={12}>

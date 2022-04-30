@@ -19,7 +19,7 @@ const AddItem = () => {
         const email = e.target.email.value;
 
         //adding item to database
-        fetch('http://localhost:5000/add-product', {
+        fetch('https://protected-peak-69494.herokuapp.com/add-product', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ const AddItem = () => {
         })
 
         //adding to order too
-        fetch(`http://localhost:5000/add-order`, {
+        fetch(`https://protected-peak-69494.herokuapp.com/add-order`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -46,31 +46,38 @@ const AddItem = () => {
     return (
         <div>
             <h1 className='mx-auto text-center mt-5'>Please add <span className='text-primary'>product</span> with valid info</h1>
+
             <Form className='w-75 mx-auto my-5' onSubmit={addItem}>
+
                 <Form.Group className="mb-3">
-                    <Form.Control type="text" placeholder="Enter Bike Name" name='name' />
+                    <Form.Control type="text" placeholder="Enter Bike Name" name='name' required />
                 </Form.Group>
+
                 <Form.Group className="mb-3">
-                    <Form.Control type="text" placeholder="Enter Supplier Name" name='supplierName' />
+                    <Form.Control type="text" placeholder="Enter Supplier Name" name='supplierName' required />
                 </Form.Group>
+
                 <Form.Group className="mb-3">
-                    <Form.Control type="text" placeholder="Enter Product Price" name='price' />
+                    <Form.Control type="text" placeholder="Enter Product Price" name='price' required />
                 </Form.Group>
+
                 <Form.Group className="mb-3">
-                    <Form.Control type="number" placeholder="Enter Product Quantity" name='quantity' />
+                    <Form.Control type="number" placeholder="Enter Product Quantity" name='quantity' required />
                 </Form.Group>
+
                 <Form.Group className="mb-3">
-                    <Form.Control type="text" placeholder="Enter Product Image url" name='img' />
+                    <Form.Control type="text" placeholder="Enter Product Image url" name='img' required />
                 </Form.Group>
+
                 <Form.Group className="mb-3">
-                    <Form.Control as='textarea' className='w-100' placeholder='Add Some Description About Your Product' name='description' />
+                    <Form.Control as='textarea' className='w-100' placeholder='Add Some Description About Your Product' name='description' required />
                 </Form.Group>
+
                 <Form.Group className="mb-3">
                     <Form.Control type="text" name='email' value={user.email} disabled />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Add Your Product
-                </Button>
+
+                <Button variant="primary" type="submit">Add Your Product</Button>
             </Form>
         </div>
     );

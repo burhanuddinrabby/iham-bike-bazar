@@ -15,7 +15,7 @@ const MyItems = () => {
 
     useEffect(() => {
         async function getBikes() {
-            const url = `http://localhost:5000/order-list?email=${email}`;
+            const url = `https://protected-peak-69494.herokuapp.com/order-list?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -23,9 +23,6 @@ const MyItems = () => {
                     }
                 })
                 setBikes(data);
-                // fetch(`http://localhost:5000/order-list?email=${email}`, 
-                //     .then(res => res.json())
-                //     .then(data => setBikes(data))
             }
             catch (err) {
                 if (err.response.status === 401 || err.response.status === 403) {
@@ -41,10 +38,9 @@ const MyItems = () => {
 
     const removeItem = (id) => {
         const confirm = window.confirm('Are you sure you want to delete?');
-        // console.log(id);
         //removing item from database
         if (confirm) {
-            fetch(`http://localhost:5000/order-list/${id}`, {
+            fetch(`https://protected-peak-69494.herokuapp.com/order-list/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -70,22 +66,23 @@ const MyItems = () => {
                 </thead>
                 <tbody>
                     {
-                        bikes.map(bike => <tr key={bike._id}>
-                            <td>
-                                <img src={bike.img} className='custom-img' style={{ width: '20px' }} alt='not found' />
-                            </td>
-                            <td>
-                                {bike.name}
-                            </td>
-                            <td>
-                                {bike.supplierName}
-                            </td>
-                            <td className='text-center'>
-                                <button onClick={() => { removeItem(bike._id) }} className='btn manage-btn btn-danger'>
-                                    <TrashIcon className="h-5 w-5 d-block text-blue-500" style={{ width: '20px' }} />
-                                </button>
-                            </td>
-                        </tr>)
+                        bikes.map(bike =>
+                            <tr key={bike._id}>
+                                <td>
+                                    <img src={bike.img} className='custom-img' style={{ width: '20px' }} alt='not found' />
+                                </td>
+                                <td>
+                                    {bike.name}
+                                </td>
+                                <td>
+                                    {bike.supplierName}
+                                </td>
+                                <td className='text-center'>
+                                    <button onClick={() => { removeItem(bike._id) }} className='btn manage-btn btn-danger'>
+                                        <TrashIcon className="h-5 w-5 d-block text-blue-500" style={{ width: '20px' }} />
+                                    </button>
+                                </td>
+                            </tr>)
                     }
                     <tr>
                     </tr>

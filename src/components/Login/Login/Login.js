@@ -44,7 +44,7 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('http://localhost:5000/login', { email });
+        const { data } = await axios.post('https://protected-peak-69494.herokuapp.com/login', { email });
         localStorage.setItem('token', data.token);
     }
 
@@ -64,26 +64,27 @@ const Login = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control name='email' type="email" placeholder="Enter email" required />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control name='password' type="password" placeholder="Password" required />
                     </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check onClick={() => setChecked(!checked)} type="checkbox" label="I agree terms and condition" />
                     </Form.Group>
                     <br />
                     {error && <p className='text-danger'>{errorMessage} <br /></p>}
+
                     <Button className='d-block mx-auto px-5' variant="primary" type="submit" disabled={!checked}>
                         Login
                     </Button>
                     <br /><br />
+
                     Don't have an account? <Link to='/signup'>Sign Up</Link>
                     <br /><br />
+
                     Forgot Password? <Link to='/forget-password'>Reset Password</Link>
                 </Form>
                 <div className="or-container">

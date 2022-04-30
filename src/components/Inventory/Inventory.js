@@ -9,7 +9,7 @@ const Inventory = () => {
     const { name, img, description, price, quantity, supplierName } = bike;
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch(`http://localhost:5000/product/${id}`)
+            const res = await fetch(`https://protected-peak-69494.herokuapp.com/product/${id}`)
             const data = await res.json()
             setBike(data);
         }
@@ -21,7 +21,7 @@ const Inventory = () => {
         let newQuantity = quantity - 1;
         const newBike = { ...bike, quantity: newQuantity }
         setBike(newBike);
-        fetch(`http://localhost:5000/update-product/${id}`, {
+        fetch(`https://protected-peak-69494.herokuapp.com/update-product/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ const Inventory = () => {
         let newQuantity = quantity + itemValue;
         const newBike = { ...bike, quantity: newQuantity }
         setBike(newBike);
-        fetch(`http://localhost:5000/update-product/${id}`, {
+        fetch(`https://protected-peak-69494.herokuapp.com/update-product/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
