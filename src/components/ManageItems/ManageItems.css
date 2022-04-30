@@ -18,4 +18,13 @@
     .custom-table {
         width: 95% !important;
     }
+
+    .manage-btn-container {
+        flex-direction: column;
+    }
+
+    .manage-btn {
+        margin-bottom: 5px;
+        /* font-size: 10px !important; */
+    }
 }

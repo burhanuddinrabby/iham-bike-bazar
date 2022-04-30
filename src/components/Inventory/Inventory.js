@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Inventory.css';
 
 const Inventory = () => {
@@ -14,7 +14,7 @@ const Inventory = () => {
             setBike(data);
         }
         fetchData();
-    }, [])
+    }, [id])
 
     // removing and setting new item when button is clicked
     function removeOne() {
@@ -56,7 +56,7 @@ const Inventory = () => {
 
                 <div className="row">
                     <div className="col-lg-6 rounded d-flex justify-content-center align-items-center custom-bg-light">
-                        <img src={img} className='className="mx-auto w-75 img-fluid' />
+                        <img src={img} className='className="mx-auto w-75 img-fluid' alt='not found' />
                     </div>
                     <div className="col-lg-6 custom-bg-dark rounded py-5">
                         <h2 className="card-title">{name}</h2>
@@ -74,6 +74,7 @@ const Inventory = () => {
                             </Button>
                         </Form>
                     </div>
+                    <Button as={Link} to='/manage-items' variant="primary" className='d-block my-5 w-50 mx-auto'>Manage Inventory</Button>
                 </div>
             </div>
         </div >
