@@ -47,7 +47,7 @@ const Home = () => {
             {/* Inventory items */}
             <div className='mt-5 mx-auto row w-90'>
                 {
-                    bikes.map(bike => <ItemCard key={bike.id} bike={bike} />)
+                    bikes.map(bike => <ItemCard key={bike._id} bike={bike} />)
                 }
             </div>
         </div>

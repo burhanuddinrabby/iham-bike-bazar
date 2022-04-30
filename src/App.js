@@ -12,6 +12,7 @@ import Home from './components/Home/Home';
 import SignUp from './components/Login/SignUp/SignUp';
 import ForgetPass from './components/Login/ForgotPass/ForgetPass';
 import Footer from './components/Footer/Footer';
+import Inventory from './components/Inventory/Inventory';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           <RequireAuth>
             <ManageItems></ManageItems>
           </RequireAuth>} />
+        <Route path='/inventory/:id' element={<RequireAuth>
+          <Inventory></Inventory>
+        </RequireAuth>} />
         <Route path='/add-item' element={<RequireAuth>
           <AddItem></AddItem>
         </RequireAuth>} />

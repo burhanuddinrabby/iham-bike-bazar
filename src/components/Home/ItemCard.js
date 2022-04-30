@@ -3,18 +3,19 @@ import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ItemCard = ({ bike }) => {
-    const { _id, name, supplierName, price, img, description } = bike;
+    const { _id, name, supplierName, quantity, price, img, description } = bike;
     return (
-        <Card className='col-lg-3 col-sm-8 col-md-5 m-3 custom-height'>
+        <Card className='col-lg-3 col-sm-8 col-md-5 custom-card'>
             <Card.Img variant="top" src={img} />
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title><h2>{name}</h2></Card.Title>
                 <Card.Text>
                     {description}
                 </Card.Text>
                 <h2 className='my-2'>$ {price}</h2>
-                <small className='my-2'>Supplier : <b>{supplierName}</b></small><br /><br />
-                <Button as={Link} to={`inventory/${_id}`} variant="primary" className='btn-bottom'>Go somewhere</Button>
+                <small className='my-2'>Supplier : <b>{supplierName}</b></small><br />
+                <small>Available : {quantity}</small><br />
+                <Button as={Link} to={`inventory/${_id}`} variant="primary" className='btn-bottom'>Update</Button>
             </Card.Body>
         </Card>
     );
