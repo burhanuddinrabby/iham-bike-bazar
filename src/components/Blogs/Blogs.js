@@ -19,6 +19,10 @@ const Blogs = () => {
                     <p>NoSQL have dynamic schema where SQL have static schema. NoSQL are horizontally scalable but SQL are vertically scalable. NoSQL is used for storing data in the form of JSON but SQL is used for storing data in the form of SQL.
                     </p>
                 </div>
+                <div className='blog'>
+                    <h2>What is JWT and how does it work?</h2>
+                    <p>The full form of JWT is JSON Web Token. It is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. When an user logs in jwt creates a token for that user and using that token it verifies if user is authorized or not. If not it takes action.</p>
+                </div>
             </div>
         </div>
     );

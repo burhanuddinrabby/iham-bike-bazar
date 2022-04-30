@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useBikes from '../../hooks/useBikes';
 import './Home.css';
 import ItemCard from './ItemCard';
+import Trip from './Trip';
 
 const Home = () => {
     //inserting bikes from custom hook
@@ -48,6 +49,11 @@ const Home = () => {
                 }
                 <Button as={Link} to='/manage-items' variant="primary" className='d-block w-50 mx-auto'>Manage Inventory</Button>
             </div>
+
+            {/* Trip section */}
+            <section className='container my-5'>
+                <Trip></Trip>
+            </section>
         </div>
     );
 };
