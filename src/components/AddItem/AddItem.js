@@ -17,6 +17,15 @@ const AddItem = () => {
         const quantity = parseInt(e.target.quantity.value);
         const supplierName = e.target.supplierName.value;
         console.log({ name, img, description, price, quantity, supplierName });
+
+        //adding item to database
+        fetch('http://localhost:5000/add-product', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, img, description, price, quantity, supplierName })
+        })
     }
     return (
         <div>

@@ -33,6 +33,9 @@ const Inventory = () => {
     function addToStock(e) {
         e.preventDefault();
         const itemValue = parseInt(e.target.itemValue.value);
+        if (e.target.itemValue.value === '') {
+            return;
+        }
         let newQuantity = quantity + itemValue;
         const newBike = { ...bike, quantity: newQuantity }
         setBike(newBike);
@@ -43,6 +46,8 @@ const Inventory = () => {
             },
             body: JSON.stringify(newBike)
         })
+        //reset form
+        e.target.itemValue.value = '';
     }
     return (
         <div>

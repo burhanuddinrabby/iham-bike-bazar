@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Button, Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useBikes from '../../hooks/useBikes';
 import './Home.css';
 import ItemCard from './ItemCard';
@@ -45,6 +46,7 @@ const Home = () => {
                 {
                     bikes.slice(0, 6).map(bike => <ItemCard key={bike._id} bike={bike} />)
                 }
+                <Button as={Link} to='/manage-items' variant="primary" className='d-block w-50 mx-auto'>Manage Inventory</Button>
             </div>
         </div>
     );
