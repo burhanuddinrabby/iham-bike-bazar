@@ -2,17 +2,40 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import axios from 'axios';
 import { TrashIcon } from '@heroicons/react/solid'
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const { email } = user;
     const [bikes, setBikes] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order-list?email=${email}`)
-            .then(res => res.json())
-            .then(data => setBikes(data))
+        async function getBikes() {
+            const url = `http://localhost:5000/order-list?email=${email}`;
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                })
+                setBikes(data);
+                // fetch(`http://localhost:5000/order-list?email=${email}`, 
+                //     .then(res => res.json())
+                //     .then(data => setBikes(data))
+            }
+            catch (err) {
+                if (err.response.status === 401 || err.response.status === 403) {
+                    localStorage.removeItem('token');
+                    signOut(auth);
+                    navigate('/login');
+                }
+            }
+        }
+        getBikes();
 
     }, [])
 
@@ -36,7 +59,6 @@ const MyItems = () => {
     }
     return (
         <div>
-            {bikes.length}
             <Table striped bordered hover className='my-5 mx-auto custom-table'>
                 <thead>
                     <tr>

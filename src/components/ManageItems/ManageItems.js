@@ -31,6 +31,8 @@ const ManageItems = () => {
                 })
         }
     }
+
+    //adding to order lists
     const addToOrder = (bike) => {
         const email = user.email;
         const img = bike.img;
@@ -64,7 +66,7 @@ const ManageItems = () => {
                         <th>Bike Name</th>
                         <th>Supplier Name</th>
                         <th>Manage Item</th>
-                        <th>Update Item</th>
+                        <th className='text-center'>Update Item</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,7 +87,7 @@ const ManageItems = () => {
                                     <PlusIcon className="h-5 w-5 text-blue-500" style={{ width: '20px' }} />
                                 </button>
                             </td>
-                            <td>
+                            <td className='text-center'>
                                 <Button as={Link} to={`/inventory/${bike._id}`} className='manage-btn' variant="primary">Update</Button>
                             </td>
                         </tr>)

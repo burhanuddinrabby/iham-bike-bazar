@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 import auth from '../../../firebase.init';
@@ -37,12 +38,14 @@ const Login = () => {
     userByGoogle && navigate(from, { replace: true });
 
     //submitting and logging in with email and password
-    const submitValue = (e) => {
+    const submitValue = async (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:5000/login', { email });
+        localStorage.setItem('token', data.token);
     }
 
     //logging in with google
