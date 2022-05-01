@@ -10,7 +10,7 @@ const ItemCard = ({ bike }) => {
             <Card.Body>
                 <Card.Title><h2>{name}</h2></Card.Title>
                 <Card.Text>
-                    {description}
+                    {description.slice(0, 200) + '...'}
                 </Card.Text>
                 <h2 className='my-2'>$ {price}</h2>
                 <small className='my-2'>Supplier : <b>{supplierName}</b></small><br />

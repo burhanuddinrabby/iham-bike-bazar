@@ -1,11 +1,15 @@
-import React from 'react';
+import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import MyVerticallyCenteredModal from './MyVerticallyCenteredModal';
 
 const AddItem = () => {
     //loading user
     const [user] = useAuthState(auth);
+    //modal state
+    const [modalShow, setModalShow] = useState(false);
 
     //adding item
     const addItem = (e) => {
@@ -77,7 +81,21 @@ const AddItem = () => {
                     <Form.Control type="text" name='email' value={user.email} disabled />
                 </Form.Group>
 
+                {/*  Button trigger modal  */}
+                <div className='mb-3'>
+                    <div className='d-flex align-items-center '>
+                        What to submit &nbsp;
+                        <QuestionMarkCircleIcon style={{ width: '28px' }} onClick={() => setModalShow(true)} />
+                    </div>
+                </div>
+
                 <Button variant="primary" type="submit">Add Your Product</Button>
+                <br />
+
+                <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
             </Form>
         </div>
     );

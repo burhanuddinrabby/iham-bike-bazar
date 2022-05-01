@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# IHAM BIKE BAZAR 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## A full stack web app
 
-In the project directory, you can run:
+### In the directory I used:
+* React, React Router
+* React firebase, firebase hooks
+* Toast
+* React Bootstrap
+* Axios
+* and many others
 
-### `npm start`
+### `live site link` : [click here](https://iham-bike-bazar.web.app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+or please visit https://iham-bike-bazar.web.app
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `server side link` : [click here](https://protected-peak-69494.herokuapp.com/)
+or please visit https://protected-peak-69494.herokuapp.com/
 
-### `npm test`
+## for uploading a new item please use this links
+* https://i.ibb.co/Z6xyq87/image-3.png
+* https://i.ibb.co/nwwFn0v/image-2.png
+* https://i.ibb.co/QNZb1pZ/image-1.png
+* https://i.ibb.co/KjzdZ9M/image.png
+* https://i.ibb.co/pPMMq40/image-removebg-preview-1.png
+* https://i.ibb.co/MSrG0LL/image-4.png
+### or use any square image (1 : 1) ratio
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## In this project
+Homepage contains 4 sections.
+* A banner
+* A card section where information of bikes loaded from database are
+* Trip to the world
+* Run Fast and don't be late for office
 
-### `npm run build`
+## There are four routes
+- Home
+- Blogs
+- Manage items (Private Route)
+- Add Item (Private Route)
+- My Items (Private Route)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### In Manage Items Route :
+- User can delete an item
+- User can add an item to his/her account
+- User can update quantity of an item
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### In Add Item Route :
+- User have to put few valid info
+- Bike Name, Supplier Name, Product Price and Quantity, Image Url, Description
+- Clicking On Add Item this is item will be added to both products and orders page with user's email address
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### In My Items Route :
+- Specific user data will be loaded for specific user
+- User can delete item manually

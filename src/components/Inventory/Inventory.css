@@ -30,6 +30,7 @@
 }
 
 .trip-img {
+    /* width: 100%; */
     height: 100%;
 }
 
@@ -53,7 +54,12 @@
 
 @media only screen and (max-width:600px) {
     .custom-bg-dark {
-        margin-top: 20px !important;
+        margin-top: 40px !important;
+    }
+
+    .trip-img {
+        width: 100%;
+        /* height: 100% */
     }
 
     .custom-grid {

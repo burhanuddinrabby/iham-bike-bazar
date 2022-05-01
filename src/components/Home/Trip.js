@@ -8,7 +8,7 @@ const Trip = () => {
                 <div className="d-flex flex-column custom-bg-dark rounded custom-height justify-content-center align-items-center px-5">
                     <h2 className='text-center my-3'>Trip to the <span className='text-primary'>WORLD!!</span></h2>
                     <p className='text-center'>
-                        The life is to short to live. As long you live enjoy each day. So, let's go and watch around the whole world. Iham Bike Bazar is the best place to go and explore the world. You can buy the best bikes and accessories for your trip. You can also sell your bikes and accessories. Choose your bike
+                        The life is to short to live. As long you live enjoy each day. So, let's go and watch around the whole world. Iham Bike Bazar is the best place explore the world. You can buy the best bikes for your trip. You can also sell your bikes. Choose your bike
                     </p>
                     <button className='btn btn-primary mt-1'>Move right now</button>
                 </div>
