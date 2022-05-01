@@ -34,10 +34,11 @@ Homepage contains 4 sections.
 * Trip to the world
 * Run Fast and don't be late for office
 
-## There are four routes
+## There are six routes
 - Home
 - Blogs
 - Manage items (Private Route)
+- Inventory/:id (Private Route)
 - Add Item (Private Route)
 - My Items (Private Route)
 
@@ -49,6 +50,7 @@ Homepage contains 4 sections.
 ### In Add Item Route :
 - User have to put few valid info
 - Bike Name, Supplier Name, Product Price and Quantity, Image Url, Description
+- There is a button tell us what to submit
 - Clicking On Add Item this is item will be added to both products and orders page with user's email address
 
 ### In My Items Route :

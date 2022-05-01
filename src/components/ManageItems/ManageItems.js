@@ -39,7 +39,7 @@ const ManageItems = () => {
         const name = bike.name;
         const supplierName = bike.supplierName;
         const newBike = { img, name, supplierName, email }
-        console.log(newBike);
+        // console.log(newBike);
         fetch(`https://protected-peak-69494.herokuapp.com/add-order`, {
             method: 'POST',
             headers: {
@@ -49,7 +49,7 @@ const ManageItems = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
             })
     }
     return (
