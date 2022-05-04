@@ -8,14 +8,14 @@ const ItemCard = ({ bike }) => {
         <Card className='col-lg-3 col-sm-8 col-md-5 custom-card'>
             <Card.Img variant="top" src={img} />
             <Card.Body>
-                <Card.Title><h2>{name}</h2></Card.Title>
-                <Card.Text>
-                    {description.slice(0, 200) + '...'}
+                <Card.Title style={{ maxHeight: '40px' }}><h2>{name}</h2></Card.Title>
+                <Card.Text style={{ minHeight: '144px' }}>
+                    {description?.length >= 200 ? description.slice(0, 200) + '...' : description}
                 </Card.Text>
-                <h2 className='my-2'>$ {price}</h2>
+                <h2 className='my-2' style={{ maxHeight: '40px' }}>$ {price}</h2>
                 <small className='my-2'>Supplier : <b>{supplierName}</b></small><br />
-                <small>Available : {quantity > 0 ? quantity : 'Out of stock'}</small><br />
-                <Button as={Link} to={`inventory/${_id}`} variant="primary" className='btn-bottom'>Update</Button>
+                <small className='my-2'>Available : {quantity > 0 ? quantity : 'Out of stock'}</small><br />
+                <Button as={Link} to={`inventory/${_id}`} variant="primary" className='mt-2'>Update</Button>
             </Card.Body>
         </Card>
     );
