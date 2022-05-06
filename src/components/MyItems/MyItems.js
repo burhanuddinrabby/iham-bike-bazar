@@ -6,6 +6,7 @@ import axios from 'axios';
 import { TrashIcon } from '@heroicons/react/solid'
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import { RotatingLines } from 'react-loader-spinner';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
@@ -55,39 +56,49 @@ const MyItems = () => {
     }
     return (
         <div>
-            <Table striped bordered hover className='my-5 mx-auto custom-table'>
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Bike Name</th>
-                        <th>Supplier Name</th>
-                        <th className='text-center'>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        bikes.map(bike =>
-                            <tr key={bike._id}>
-                                <td>
-                                    <img src={bike.img} className='custom-img' style={{ width: '20px' }} alt='not found' />
-                                </td>
-                                <td>
-                                    {bike.name}
-                                </td>
-                                <td>
-                                    {bike.supplierName}
-                                </td>
-                                <td className='text-center'>
-                                    <button onClick={() => { removeItem(bike._id) }} className='btn manage-btn btn-danger'>
-                                        <TrashIcon className="h-5 w-5 d-block text-blue-500" style={{ width: '20px' }} />
-                                    </button>
-                                </td>
-                            </tr>)
-                    }
-                    <tr>
-                    </tr>
-                </tbody>
-            </Table>
+            {
+
+                bikes.length === 0 ?
+                    <div className='mx-auto mt-5'>
+                        <div className='mx-auto w-25  justify-content-center d-flex'>
+                            <RotatingLines width="100" className='d-block mx-auto' />
+                        </div>
+                    </div>
+                    :
+                    <Table striped bordered hover className='my-5 mx-auto custom-table'>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Bike Name</th>
+                                <th>Supplier Name</th>
+                                <th className='text-center'>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                bikes.map(bike =>
+                                    <tr key={bike._id}>
+                                        <td>
+                                            <img src={bike.img} className='custom-img' style={{ width: '20px' }} alt='not found' />
+                                        </td>
+                                        <td>
+                                            {bike.name}
+                                        </td>
+                                        <td>
+                                            {bike.supplierName}
+                                        </td>
+                                        <td className='text-center'>
+                                            <button onClick={() => { removeItem(bike._id) }} className='btn manage-btn btn-danger'>
+                                                <TrashIcon className="h-5 w-5 d-block text-blue-500" style={{ width: '20px' }} />
+                                            </button>
+                                        </td>
+                                    </tr>)
+                            }
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </Table>
+            }
         </div>
     );
 };

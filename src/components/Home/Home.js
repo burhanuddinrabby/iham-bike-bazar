@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Carousel } from 'react-bootstrap';
+import { RotatingLines } from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 import useBikes from '../../hooks/useBikes';
 import './Home.css';
@@ -45,7 +46,15 @@ const Home = () => {
             {/* Inventory items */}
             <div className='mt-5 mx-auto row w-90'>
                 {
-                    bikes.slice(0, 6).map(bike => <ItemCard key={bike._id} bike={bike} />)
+                    bikes.length === 0 ?
+                        <div className='mx-auto my-5'>
+                            <div className='mx-auto w-25  justify-content-center d-flex'>
+                                {/* < color="grey" strokeColor="#FF5733" className='d-block mx-auto' /> */}
+                                <RotatingLines width="100" strokeColor="#FF5733" className='d-block mx-auto' />
+                            </div>
+                        </div>
+                        :
+                        bikes.slice(0, 6).map(bike => <ItemCard key={bike._id} bike={bike} />)
                 }
                 <Button as={Link} to='/manage-items' variant="primary" className='d-block w-50 mx-auto'>Manage Inventory</Button>
             </div>
