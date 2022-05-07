@@ -6,7 +6,7 @@ import './Inventory.css';
 const Inventory = () => {
     const { id } = useParams();
     const [bike, setBike] = useState({});
-    const { name, img, description, price, quantity, supplierName } = bike;
+    const { name, img, description, price, quantity, supplierName, sold } = bike;
     useEffect(() => {
         async function fetchData() {
             const res = await fetch(`https://protected-peak-69494.herokuapp.com/product/${id}`)
@@ -19,7 +19,8 @@ const Inventory = () => {
     // removing and setting new item when button is clicked
     function removeOne() {
         let newQuantity = quantity - 1;
-        const newBike = { ...bike, quantity: newQuantity }
+        let newSold = sold + 1;
+        const newBike = { ...bike, quantity: newQuantity, sold: newSold };
         setBike(newBike);
         fetch(`https://protected-peak-69494.herokuapp.com/update-product/${id}`, {
             method: 'PUT',
@@ -63,6 +64,7 @@ const Inventory = () => {
                         <h2 className='my-2'>$ {price}</h2>
                         <small className='my-2'>Supplier : <b>{supplierName}</b></small><br />
                         <small>Available : {quantity > 0 ? quantity : 'Out of stock'}</small><br />
+                        <small className='my-2'>Total sold : <b>{sold}</b></small><br />
                         <p className='my-2'>{description}</p>
                         <button onClick={() => removeOne(id)} className='btn btn-primary' disabled={quantity <= 0}>Delivered</button>
                         <Form className='w-75 mx-auto my-5' onSubmit={addToStock}>

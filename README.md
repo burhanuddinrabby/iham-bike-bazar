@@ -15,8 +15,8 @@
 
 or please visit https://iham-bike-bazar.web.app
 
-### `server side link` : [click here](https://protected-peak-69494.herokuapp.com/)
-or please visit https://protected-peak-69494.herokuapp.com/
+### `server side link` : [click here](https://protected-peak-69494.herokuapp.com/update-product/)
+or please visit https://protected-peak-69494.herokuapp.com/update-product/
 
 ## for uploading a new item please use this links
 * https://i.ibb.co/Z6xyq87/image-3.png

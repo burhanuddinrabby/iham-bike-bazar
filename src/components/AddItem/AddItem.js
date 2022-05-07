@@ -28,7 +28,7 @@ const AddItem = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ name, img, description, price, quantity, supplierName })
+            body: JSON.stringify({ name, img, description, price, quantity, supplierName, sold: 0 })
         })
 
         //adding to order too
